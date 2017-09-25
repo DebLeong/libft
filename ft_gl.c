@@ -6,7 +6,7 @@
 /*   By: dleong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 23:41:30 by dleong            #+#    #+#             */
-/*   Updated: 2017/09/24 20:15:26 by dleong           ###   ########.fr       */
+/*   Updated: 2017/09/24 21:57:20 by dleong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,11 @@
 int	ft_gl(char const *s, char c)
 {
 	int	i;
-	int	j;
-	int	len;
 
 	i = 0;
-	j = 0;
-	len = 0;
 	if (!s || !c)
 		return (0);
-	while (s[i] != '\0')
-	{
-		while (s[i] == c && s[i] != '\0')
-			i++;
-		j = i;
-		while (s[i] != c && s[i] != '\0')
-			i++;
-		len += i - j;
-	}
-	return (len);
+	while (s[i] != c && s[i] != '\0')
+		i++;
+	return (i);
 }
