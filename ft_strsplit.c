@@ -6,17 +6,17 @@
 /*   By: dleong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 17:22:04 by dleong            #+#    #+#             */
-/*   Updated: 2017/09/25 13:38:03 by dleong           ###   ########.fr       */
+/*   Updated: 2017/09/25 13:40:21 by dleong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_strsplit(char const *s, char c)
+char		**ft_strsplit(char const *s, char c)
 {
-	char    **result;
-	int     words;
-	int     i;
+	char	**result;
+	int		words;
+	int		i;
 
 	result = NULL;
 	if (s)
