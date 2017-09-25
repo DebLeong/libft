@@ -6,7 +6,7 @@
 /*   By: dleong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 17:22:04 by dleong            #+#    #+#             */
-/*   Updated: 2017/09/25 13:23:16 by dleong           ###   ########.fr       */
+/*   Updated: 2017/09/25 13:38:03 by dleong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,27 @@
 
 char	**ft_strsplit(char const *s, char c)
 {
-	char    **ptrptr;
-	int     cw;
+	char    **result;
+	int     words;
 	int     i;
-	ptrptr = NULL;
+
+	result = NULL;
 	if (s)
 	{
 		i = 0;
-		cw = ft_gc(s, c);
-		ptrptr = (char **)malloc((sizeof(char *) * cw) + 1);
-		if (!ptrptr)
+		words = ft_gc(s, c);
+		if (!(result = (char **)malloc((sizeof(char *) * words) + 1)))
 			return (NULL);
-		while (cw--)
+		while (words--)
 		{
 			while (*s == c && *s != '\0')
 				s++;
-			ptrptr[i] = ft_strsub(s, 0, ft_gl(s, c));
-			if (!ptrptr[i])
+			if (!(result[i] = ft_strsub(s, 0, ft_gl(s, c))))
 				return (NULL);
 			s = s + ft_gl(s, c);
 			i++;
 		}
-		ptrptr[i] = NULL;
+		result[i] = NULL;
 	}
-	return (ptrptr);
+	return (result);
 }
