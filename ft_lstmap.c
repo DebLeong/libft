@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dleong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/23 16:21:30 by dleong            #+#    #+#             */
-/*   Updated: 2017/09/24 23:21:53 by dleong           ###   ########.fr       */
+/*   Created: 2017/09/25 11:33:23 by dleong            #+#    #+#             */
+/*   Updated: 2017/09/25 12:53:43 by dleong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	int		i;
-	int		j;
-	char	*result;
+	t_list	*newhead;
+	t_list	*curr;
+	t_list	*tmp;
 
-	i = 0;
-	j = 0;
-	if (!s1 || !s2)
+	if (!lst || !f)
 		return (NULL);
-	if (!(result = (char *)ft_strnew(sizeof(char) *
-		((int)ft_strlen(s1) + (int)ft_strlen(s2)))))
+	tmp = f(lst);
+	if (!(curr = ft_lstnew(tmp->content, tmp->content_size)))
 		return (NULL);
-	while (s1[i] != '\0')
+	newhead = curr;
+	lst = lst->next;
+	while (lst)
 	{
-		result[i] = s1[i];
-		i++;
+		tmp = f(lst);
+		if (!(curr->next = ft_lstnew(tmp->content, tmp->content_size)))
+			return (NULL);
+		lst = lst->next;
+		curr = curr->next;
 	}
-	while (s2[j] != '\0')
-	{
-		result[i] = s2[j];
-		i++;
-		j++;
-	}
-	return (result);
+	return (newhead);
 }

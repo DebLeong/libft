@@ -6,14 +6,14 @@
 /*   By: dleong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 17:22:04 by dleong            #+#    #+#             */
-/*   Updated: 2017/09/24 23:04:32 by dleong           ###   ########.fr       */
+/*   Updated: 2017/09/25 13:08:35 by dleong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #define G(x) ft_memalloc(x)
 
-char		**ft_strsplit(char const *s, char c)
+char				**ft_strsplit(char const *s, char c)
 {
 	size_t			j[2];
 	unsigned int	a;
@@ -33,11 +33,8 @@ char		**ft_strsplit(char const *s, char c)
 			a = j[0];
 			while (s[j[0]] != c)
 				j[0]++;
-			if (!(r[j[1]] = ft_strsub((char *)s, a, ft_gl(&s[a], c))))
-			{
-				return (NULL);
+			if (!(r[j[1]] = (char *)ft_strsub((char *)s, a, ft_gl(&s[a], c))))
 				ft_memdel((void**)r);
-			}
 		}
 		r[j[1]] = NULL;
 	}

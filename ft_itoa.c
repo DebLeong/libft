@@ -6,7 +6,7 @@
 /*   By: dleong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/24 13:17:55 by dleong            #+#    #+#             */
-/*   Updated: 2017/09/24 17:20:51 by dleong           ###   ########.fr       */
+/*   Updated: 2017/09/24 23:21:00 by dleong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ char	*ft_itoa(int n)
 	char	*a;
 
 	i = 0;
-	len = ft_getdigit(n);
+	len = (int)ft_getdigit(n);
 	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	if (!(a = ft_strnew(sizeof(char) * len)))
+		return ((char *)ft_strdup("-2147483648"));
+	if (!(a = (char *)ft_strnew(sizeof(char) * len)))
 		return (NULL);
 	if (n < 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: dleong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 16:32:27 by dleong            #+#    #+#             */
-/*   Updated: 2017/09/23 17:21:42 by dleong           ###   ########.fr       */
+/*   Updated: 2017/09/24 23:19:49 by dleong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_strtrim(char const *s)
 		return (ft_strnew(sizeof(0)));
 	while (ft_istrimspace((int)s[j]))
 		j--;
-	if (!(result = ft_strnew(sizeof(char) * (j - i + 1))))
+	if (!(result = (char *)ft_strnew(sizeof(char) * (j - i + 1))))
 		return (NULL);
 	while (i <= j)
 	{

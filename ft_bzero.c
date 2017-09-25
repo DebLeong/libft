@@ -6,7 +6,7 @@
 /*   By: dleong <dleong@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 10:35:16 by dleong            #+#    #+#             */
-/*   Updated: 2017/09/20 10:40:31 by dleong           ###   ########.fr       */
+/*   Updated: 2017/09/25 13:06:51 by dleong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	ft_bzero(void *s, size_t n)
 	char	*result;
 	size_t	i;
 
-	if (n == 0)
-		return ;
 	result = s;
 	i = 0;
 	while (i < n)

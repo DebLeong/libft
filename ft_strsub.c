@@ -6,7 +6,7 @@
 /*   By: dleong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 16:02:52 by dleong            #+#    #+#             */
-/*   Updated: 2017/09/23 16:21:04 by dleong           ###   ########.fr       */
+/*   Updated: 2017/09/24 23:18:41 by dleong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	if (!s)
 		return (NULL);
 	s1 = (char *)s + start;
-	s1 = ft_strnew(sizeof(char) * len);
+	s1 = (char *)ft_strnew(sizeof(char) * len);
 	if (!s1)
 		return (NULL);
 	while (s[start] != '\0' && i < (int)len)
