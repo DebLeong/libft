@@ -6,7 +6,7 @@
 /*   By: dleong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 17:22:04 by dleong            #+#    #+#             */
-/*   Updated: 2017/09/24 20:14:29 by dleong           ###   ########.fr       */
+/*   Updated: 2017/09/24 20:35:57 by dleong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	**ft_strsplit(char const *s, char c)
 	{
 		j[0] = -1;
 		j[1] = -1;
-		if (!(r = (char**)G(sizeof(char*) * ((int)ft_gc(s, c) + 1))))
+		if (!(r = G(sizeof(char*) * ((int)ft_gc(s, c) + 1))))
 			return (NULL);
 		while (s[++j[0]] != '\0' && ++j[1] < (int)ft_gc(s, c))
 		{
@@ -34,7 +34,7 @@ char	**ft_strsplit(char const *s, char c)
 			start = j[0];
 			while (s[j[0]] != c)
 				j[0]++;
-			if (!(r[j[1]] = (char*)G(sizeof(char) * ((int)ft_gl(s, c) + 1))))
+			if (!(r[j[1]] = G(sizeof(char) * ((int)ft_gl(s, c) + 1))))
 				return (NULL);
 			r[j[1]] = ft_strncpy(r[j[1]], (char *)&s[start], (j[0] - start));
 		}
