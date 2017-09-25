@@ -6,13 +6,13 @@
 /*   By: dleong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/22 17:24:14 by dleong            #+#    #+#             */
-/*   Updated: 2017/09/22 17:31:51 by dleong           ###   ########.fr       */
+/*   Updated: 2017/09/24 20:55:16 by dleong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_strnew(size_t size)
+char	*ft_strnew(size_t size)
 {
 	void	*s;
 
