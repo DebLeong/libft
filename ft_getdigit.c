@@ -6,7 +6,7 @@
 /*   By: dleong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/24 14:48:36 by dleong            #+#    #+#             */
-/*   Updated: 2017/09/24 16:03:35 by dleong           ###   ########.fr       */
+/*   Updated: 2017/09/24 16:12:37 by dleong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ int	ft_getdigit(int n)
 		n = -n;
 		digit += 1;
 	}
-	while (n >= 9)
+	while (n >= 10)
 	{
 		n = n / 10;
 		digit += 1;
 	}
-	return (digit);
+	return (digit + 1);
 }

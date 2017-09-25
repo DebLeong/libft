@@ -6,7 +6,7 @@
 /*   By: dleong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/24 12:03:03 by dleong            #+#    #+#             */
-/*   Updated: 2017/09/24 16:23:43 by dleong           ###   ########.fr       */
+/*   Updated: 2017/09/24 20:14:48 by dleong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,8 @@ void				ft_listiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int					ft_istrimspace(int c);
 int					ft_iswhitespace(int c);
-int					ft_getstrlen(char const *s, char c);
-int					ft_getstrcount(char const *s, char c);
+int					ft_gl(char const *s, char c);
+int					ft_gc(char const *s, char c);
 int					ft_getdigit(int	n);
 
 #endif

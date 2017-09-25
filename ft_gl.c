@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_getstrcount.c                                   :+:      :+:    :+:   */
+/*   ft_gl.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dleong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/24 01:20:54 by dleong            #+#    #+#             */
-/*   Updated: 2017/09/24 13:16:11 by dleong           ###   ########.fr       */
+/*   Created: 2017/09/23 23:41:30 by dleong            #+#    #+#             */
+/*   Updated: 2017/09/24 20:15:26 by dleong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_getstrcount(char const *s, char c)
+int	ft_gl(char const *s, char c)
 {
 	int	i;
-	int	count;
+	int	j;
+	int	len;
 
 	i = 0;
-	count = 0;
+	j = 0;
+	len = 0;
+	if (!s || !c)
+		return (0);
 	while (s[i] != '\0')
 	{
 		while (s[i] == c && s[i] != '\0')
 			i++;
-		if (s[i] != '\0')
-			count += 1;
+		j = i;
 		while (s[i] != c && s[i] != '\0')
 			i++;
+		len += i - j;
 	}
-	return (count);
+	return (len);
 }

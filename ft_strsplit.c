@@ -6,36 +6,39 @@
 /*   By: dleong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 17:22:04 by dleong            #+#    #+#             */
-/*   Updated: 2017/09/24 13:15:37 by dleong           ###   ########.fr       */
+/*   Updated: 2017/09/24 20:14:29 by dleong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+#define G(x) ft_memalloc(x)
+
 char	**ft_strsplit(char const *s, char c)
 {
-	int		i;
-	int		k;
+	int		j[2];
 	int		start;
-	char	**result;
+	char	**r;
 
-	if (!s || !c)
-		return (NULL);
-	i = -1;
-	k = -1;
-	if (!(result = ft_strnew(sizeof(char*) * ft_getstrcount(s, c))))
-		return (NULL);
-	while (s[++i] != '\0' && ++k < ft_getstrcount(s, c))
+	r = NULL;
+	if (s)
 	{
-		while (s[i] == c)
-			i++;
-		start = i;
-		while (s[i] != c)
-			i++;
-		if (!(result[k] = ft_strnew(sizeof(char) * (size_t)ft_getstrlen(s, c))))
+		j[0] = -1;
+		j[1] = -1;
+		if (!(r = (char**)G(sizeof(char*) * ((int)ft_gc(s, c) + 1))))
 			return (NULL);
-		result[k] = ft_strncpy(result[k], (char *)&s[start], (i - start));
+		while (s[++j[0]] != '\0' && ++j[1] < (int)ft_gc(s, c))
+		{
+			while (s[j[0]] == c)
+				j[0]++;
+			start = j[0];
+			while (s[j[0]] != c)
+				j[0]++;
+			if (!(r[j[1]] = (char*)G(sizeof(char) * ((int)ft_gl(s, c) + 1))))
+				return (NULL);
+			r[j[1]] = ft_strncpy(r[j[1]], (char *)&s[start], (j[0] - start));
+		}
+		r[j[1]] = NULL;
 	}
-	result[k] = NULL;
-	return (result);
+	return (r);
 }

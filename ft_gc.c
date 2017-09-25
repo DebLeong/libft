@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_getstrlen.c                                     :+:      :+:    :+:   */
+/*   ft_gc.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dleong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/23 23:41:30 by dleong            #+#    #+#             */
-/*   Updated: 2017/09/24 13:16:54 by dleong           ###   ########.fr       */
+/*   Created: 2017/09/24 01:20:54 by dleong            #+#    #+#             */
+/*   Updated: 2017/09/24 20:15:15 by dleong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_getstrlen(char const *s, char c)
+int	ft_gc(char const *s, char c)
 {
 	int	i;
-	int	j;
-	int	len;
+	int	count;
 
 	i = 0;
-	j = 0;
-	len = 0;
-	if (!s || !c)
-		return (0);
+	count = 0;
 	while (s[i] != '\0')
 	{
 		while (s[i] == c && s[i] != '\0')
 			i++;
-		j = i;
+		if (s[i] != '\0')
+			count += 1;
 		while (s[i] != c && s[i] != '\0')
 			i++;
-		len += i - j;
 	}
-	return (len);
+	return (count);
 }
