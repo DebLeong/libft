@@ -23,7 +23,7 @@ FILES = ft_lstdelone.c ft_putnbr_fd.c ft_strmapi.c ft_lstiter.c ft_putstr.c \
 	ft_istrimspace.c ft_putchar.c ft_striteri.c ft_tolower.c ft_iswhitespace.c \
 	ft_putchar_fd.c ft_strjoin.c ft_toupper.c ft_itoa.c ft_putendl.c \
 	ft_strlcat.c ft_lstadd.c ft_putendl_fd.c ft_strlen.c ft_lstdel.c \
-	ft_putnbr.c	ft_strmap.c
+	ft_putnbr.c	ft_strmap.c get_next_line.c
 
 OBJ = *.o
 
